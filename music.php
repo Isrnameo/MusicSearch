@@ -1,3 +1,6 @@
+<?php include 'header.php'; ?>
+<?php include 'isolated.php'; ?>
+
 <?php
 $connection = mysqli_connect("localhost", "root", "password");
 mysqli_select_db($connection, "database");
@@ -13,6 +16,7 @@ if (isset($_GET['search'])) {
     if (mysqli_num_rows($run_result) < 1) {
     // these are not the droids you are looking for!
         echo "<p>MusicSearch was unable to find the music you are looking for</p>";
+	    include 'footer.php'
         exit();
     }
     while ($data_found = mysqli_fetch_array($start_search)) {
@@ -27,4 +31,6 @@ if (isset($_GET['search'])) {
 		</div>
 		";
 		}
+	include 'footer.php';
     }
+?>
